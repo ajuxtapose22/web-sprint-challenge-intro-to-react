@@ -8,13 +8,17 @@ function Character({character}) { // ❗ Add the props
   const toggleHomeworld = () => {
     setShowHomeworld(!showHomeworld);
   };
+ 
   
   return (
-    <div className='character'>
-      <h3>{character.name}</h3>
-      <button onClick={toggleHomeworld}> Toggle Homeworld</button>
-      {/* Use the same markup with the same attributes as in the mock */}
-
+    <div className='character-card' onClick={toggleHomeworld}>
+      <h3 className='character-name'>{character.name}</h3>
+      {showHomeworld && (
+        <p>
+            Planet: 
+          <span className="character-planet">{character.homeworldName}</span>
+        </p>
+      )}
     </div>
   )
 }

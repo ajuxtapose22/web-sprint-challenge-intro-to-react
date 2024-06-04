@@ -23,7 +23,7 @@ useEffect(() => {
     const people = peopleResponse.data;
     
 const combinedData = people.map(person => {
-  const homeworldPlanet = planets.find(planet => planet.id === person.homeworld)
+  const homeworldPlanet = planets.find(p => p.id === person.homeworld)
   const homeworldName = homeworldPlanet ? homeworldPlanet.name : 'Unknown';
   return {
     ...person,
@@ -51,11 +51,11 @@ if (error) return <p>Error: {error.message}</p>;
       <h2>Star Wars Characters</h2>
       <p>See the README of the project for instructions on completing this challenge</p>
       {/* ❗ Map over the data in state, rendering a Character at each iteration */}
-      <ul>
+      <div>
         {characters.map((person, index) => {
          return <Character key={index} character={person}/>
         })}
-      </ul>
+      </div>
     </div>
   );
 }
